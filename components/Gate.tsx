@@ -89,8 +89,8 @@ function GateDefs() {
           <stop offset="1" stopColor="#c8a96a" stopOpacity="0" />
         </linearGradient>
         <radialGradient id="sealGreen" cx=".4" cy=".35" r=".8">
-          <stop offset="0" stopColor="#b76e79" />
-          <stop offset="1" stopColor="#6e2f3c" />
+          <stop offset="0" stopColor="#3e6a9c" />
+          <stop offset="1" stopColor="#1f3a5f" />
         </radialGradient>
         <pattern id="ivJali" width="18" height="18" patternUnits="userSpaceOnUse">
           <path d="M9 0L18 9L9 18L0 9Z" fill="none" stroke="#c8a96a" strokeWidth=".45" opacity=".5" />

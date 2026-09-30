@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { events } from "@/lib/wedding";
 import Reveal from "./Reveal";
 
-/* the road across Hasilpur: Rasool house (left) to Malik house (right) */
+/* the road across Hasilpur: Ghulam Rasool house (left) to Ghulam Nabi house (right) */
 const ROAD = "M40 382C150 382 170 306 270 314S432 384 532 332S640 272 712 270";
 
 /* ------------------------------------------------------------------ */
@@ -276,7 +276,7 @@ function Hasilpur() {
   );
 }
 
-/** the bride's family haveli in Hasilpur, dressed for the wedding */
+/** the bride's family haveli (Ghulam Nabi house) in Hasilpur, dressed for the wedding */
 function MalikHaveli() {
   const win = "#ffd98a";
   const stone = "#f1e6d6", trim = "#c9937e", shade = "#dccab3";
@@ -352,12 +352,13 @@ function MalikHaveli() {
   );
 }
 
-function Pin({ x, y, label, color }: { x: number; y: number; label: string; color: string }) {
+/** dx shifts the label pill sideways (keeps it inside the frame) while the pin stays put */
+function Pin({ x, y, label, color, dx = 0 }: { x: number; y: number; label: string; color: string; dx?: number }) {
   const w = label.length * 9.4 + 26;
   return (
     <g transform={`translate(${x} ${y})`}>
-      <rect x={-w / 2} y="-44" width={w} height="26" rx="13" fill="#fffaf0" stroke="#c8a96a" strokeWidth="1" />
-      <text y="-26" textAnchor="middle" fontSize="16" fontWeight="600" fill="#6e2f3c" style={{ fontFamily: "var(--serif)" }}>{label}</text>
+      <rect x={dx - w / 2} y="-44" width={w} height="26" rx="13" fill="#fffaf0" stroke="#c8a96a" strokeWidth="1" />
+      <text x={dx} y="-26" textAnchor="middle" fontSize="16" fontWeight="600" fill="#6e2f3c" style={{ fontFamily: "var(--serif)" }}>{label}</text>
       <path d="M0 0c-6-7-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8-9 15z" fill={color} />
       <circle cy="-15" r="3.4" fill="#fffaf0" />
     </g>
@@ -433,7 +434,7 @@ export default function Journey() {
         <Reveal as="h2" className="title" delay={0.1}>The Barat <em className="foil">Journey</em></Reveal>
 
         <div className={`scene${arrived ? " arrived" : ""}`} ref={box}>
-          <svg viewBox="0 0 800 420" role="img" aria-label="On a winter evening the Barat drives across Hasilpur from the Rasool house to the Malik house">
+          <svg viewBox="0 0 800 420" role="img" aria-label="On a winter evening the Barat drives across Hasilpur from the Ghulam Rasool house to the Ghulam Nabi house">
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stopColor="#2c3157" />
@@ -529,10 +530,10 @@ export default function Journey() {
             ))}
 
             {/* place markers */}
-            <Pin x={71} y={226} label="Rasool House" color="#1f3a5f" />
-            <Pin x={695} y={128} label="Malik House" color="#8e2436" />
+            <Pin x={71} y={226} dx={40} label="Ghulam Rasool House" color="#1f3a5f" />
+            <Pin x={695} y={128} label="Ghulam Nabi House" color="#8e2436" />
 
-            {/* fireworks over the Malik house on arrival */}
+            {/* fireworks over the Ghulam Nabi house on arrival */}
             <g className="fireworks" aria-hidden="true">
               {[
                 { x: 640, y: 90, c: "#e3c27a", d: "0s" },

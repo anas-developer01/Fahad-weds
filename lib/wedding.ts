@@ -87,7 +87,7 @@ export const events: WeddingEvent[] = [
     time: "12:00 PM",
     venue: "Al Madina Grand Marquee, Hasilpur",
     map: "https://share.google/h7aaqnPoEZzM0liaJ",
-    accent: "#1f7a57",
+    accent: "#2f6f73",
     start: "20261115T070000Z",
     end: "20261115T110000Z",
   },
