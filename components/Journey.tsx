@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { events } from "@/lib/wedding";
 import Reveal from "./Reveal";
 
-/* the road from Hasilpur (left) to Multan (right) */
+/* the road across Hasilpur: Rasool house (left) to Malik house (right) */
 const ROAD = "M40 382C150 382 170 306 270 314S432 384 532 332S640 272 712 270";
 
 /* ------------------------------------------------------------------ */
@@ -91,7 +91,7 @@ function WeddingCar({ wheelA, wheelB }: { wheelA: React.Ref<SVGGElement>; wheelB
       <rect x="-48" y="-21" width="2.6" height="4" rx="1" fill="#c42a43" />
       {/* number plate */}
       <rect x="44" y="-14" width="10" height="4.4" rx=".8" fill="#fffaf0" stroke="#b8933f" strokeWidth=".3" />
-      <text x="49" y="-10.8" textAnchor="middle" fontSize="3" fontWeight="700" fill="#6e2f3c" style={{ fontFamily: "var(--serif)" }}>A♥I</text>
+      <text x="49" y="-10.8" textAnchor="middle" fontSize="3" fontWeight="700" fill="#6e2f3c" style={{ fontFamily: "var(--serif)" }}>F♥Z</text>
 
       {/* flower garland swags along the side */}
       <Garland from={[-44, -24]} to={[-24, -24]} sag={5} n={9} />
@@ -276,87 +276,78 @@ function Hasilpur() {
   );
 }
 
-function Multan() {
+/** the bride's family haveli in Hasilpur, dressed for the wedding */
+function MalikHaveli() {
   const win = "#ffd98a";
+  const stone = "#f1e6d6", trim = "#c9937e", shade = "#dccab3";
+  const Chhatri = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <rect x="-9" y="-2" width="18" height="3" fill={trim} />
+      <rect x="-8" y="-16" width="2.4" height="14" fill={stone} /><rect x="5.6" y="-16" width="2.4" height="14" fill={stone} />
+      <path d="M-10 -16h20" stroke={trim} strokeWidth="2" />
+      <path d="M-8 -17c0-11 16-11 16 0z" fill="#fbf6ee" stroke={shade} strokeWidth=".6" />
+      <path d="M0 -26v-4" stroke="#c8a96a" strokeWidth="1" /><circle cy="-31" r="1.4" fill="#e3c27a" />
+      <path d="M-5.6 -2v-8a5.6 5.6 0 0 1 11.2 0v8z" fill={win} opacity=".7" />
+    </g>
+  );
   return (
     <g>
-      <ellipse cx="690" cy="236" rx="150" ry="70" fill="url(#townGlow)" />
+      <ellipse cx="695" cy="240" rx="150" ry="70" fill="url(#townGlow)" />
 
-      {/* minarets */}
-      {[586, 790].map((x) => (
+      {/* side wings */}
+      {[590, 742].map((x) => (
         <g key={x}>
-          <rect x={x - 3.5} y="178" width="7" height="92" fill="#e9dccb" />
-          {[196, 222, 248].map((y) => <rect key={y} x={x - 4.5} y={y} width="9" height="3" fill="#3f78b0" />)}
-          <path d={`M${x - 5} 178c0-10 10-10 10 0z`} fill="#f5ede2" />
-          <rect x={x - 5.5} y="176" width="11" height="2.4" fill="#c8a96a" />
-          <circle cx={x} cy="166" r="1.8" fill="#e3c27a" />
+          <rect x={x} y="214" width="58" height="56" fill={stone} />
+          <rect x={x - 2} y="210" width="62" height="5" fill={trim} />
+          {[0, 1, 2].map((k) => (
+            <path key={k} d={`M${x + 8 + k * 16} 262v-22a6 6 0 0 1 12 0v22z`} fill={k === 1 ? "#7a3f45" : win} opacity={k === 1 ? 1 : 0.85} stroke={trim} strokeWidth=".8" />
+          ))}
+          {Array.from({ length: 7 }, (_, k) => <rect key={k} x={x + 2 + k * 8.5} y="204" width="4.5" height="6" fill={trim} />)}
         </g>
       ))}
 
-      {/* side shrine */}
+      {/* central block */}
+      <rect x="646" y="176" width="98" height="94" fill={stone} />
+      <rect x="642" y="170" width="106" height="7" fill={trim} />
+      {Array.from({ length: 11 }, (_, k) => <rect key={k} x={644 + k * 9.8} y="162" width="5.5" height="8" fill={trim} />)}
+      <path d="M646 196h98" stroke={shade} strokeWidth="1" />
+
+      {/* jharokha balcony */}
       <g>
-        <rect x="604" y="214" width="44" height="56" fill="#c9906f" />
-        <rect x="604" y="214" width="44" height="6" fill="#3f78b0" />
-        <path d="M604 220h44" stroke="#fff" strokeWidth=".8" strokeDasharray="2 2" />
-        <path d="M608 214c0-26 36-26 36 0z" fill="#f5ede2" stroke="#d8c9b0" strokeWidth=".6" />
-        <path d="M626 188v-6" stroke="#c8a96a" strokeWidth="1.2" /><circle cx="626" cy="180" r="2" fill="#e3c27a" />
-        <path d="M618 262v-14a8 8 0 0 1 16 0v14z" fill="#2f5f8f" />
-        <path d="M618 262v-14a8 8 0 0 1 16 0" fill="none" stroke="#e3c27a" strokeWidth=".8" />
+        <rect x="676" y="186" width="38" height="4" fill={trim} />
+        <path d="M672 214h46l-4 8h-38z" fill={trim} />
+        <rect x="678" y="190" width="34" height="24" fill="#fbf6ee" stroke={shade} strokeWidth=".6" />
+        {[680, 691, 702].map((x) => <path key={x} d={`M${x} 212v-12a4.5 4.5 0 0 1 9 0v12z`} fill={win} />)}
+        <path d="M676 186c0-14 38-14 38 0z" fill="#fbf6ee" stroke={shade} strokeWidth=".6" />
+        <path d="M695 173v-5" stroke="#c8a96a" strokeWidth="1" /><circle cx="695" cy="167" r="1.8" fill="#e3c27a" />
       </g>
 
-      {/* grand shrine — Multani blue tile work */}
-      <g>
-        <rect x="652" y="200" width="84" height="70" fill="#c48a69" />
-        <rect x="660" y="176" width="68" height="26" fill="#cf9877" />
-        {/* tile bands */}
-        <rect x="652" y="200" width="84" height="7" fill="#2f6aa6" />
-        <path d="M654 203.5h80" stroke="#fff" strokeWidth="1" strokeDasharray="1.5 2.5" />
-        <rect x="660" y="176" width="68" height="5" fill="#3f78b0" />
-        <path d="M662 178.5h64" stroke="#fff" strokeWidth=".8" strokeDasharray="1.5 2" />
-        {/* dome */}
-        <path d="M664 176c0-44 60-44 60 0z" fill="#f7f0e6" stroke="#d8c9b0" strokeWidth=".7" />
-        <path d="M672 170c2-22 16-30 22-31" fill="none" stroke="#fff" strokeWidth="3" opacity=".7" strokeLinecap="round" />
-        <path d="M664 176h60" stroke="#c8a96a" strokeWidth="1.4" />
-        <rect x="692.5" y="126" width="3" height="10" fill="#c8a96a" />
-        <circle cx="694" cy="124" r="3" fill="#e3c27a" />
-        <path d="M692 118a3 3 0 1 0 4 0a2.4 2.4 0 1 1 -4 0z" fill="#e3c27a" />
-        {/* corner turrets */}
-        {[652, 736].map((x) => (
-          <g key={x}>
-            <rect x={x - 5} y="184" width="10" height="86" fill="#d9a584" />
-            <rect x={x - 5} y="196" width="10" height="3" fill="#2f6aa6" />
-            <path d={`M${x - 6} 184c0-10 12-10 12 0z`} fill="#f5ede2" />
-            <circle cx={x} cy="173" r="1.6" fill="#e3c27a" />
-          </g>
-        ))}
-        {/* arched doorway & windows with tile frames */}
-        <path d="M682 270v-26a12 12 0 0 1 24 0v26z" fill="#2f5f8f" />
-        <path d="M682 270v-26a12 12 0 0 1 24 0v26" fill="none" stroke="#e3c27a" strokeWidth="1.2" />
-        <path d="M686 270v-24a8 8 0 0 1 16 0v24z" fill={win} opacity=".85" />
-        {[662, 714].map((x) => <path key={x} d={`M${x} 236v-12a6 6 0 0 1 12 0v12z`} fill={win} stroke="#2f6aa6" strokeWidth="1.4" />)}
-        {[667, 707].map((x) => <path key={x} d={`M${x} 188v-6a3 3 0 0 1 6 0v6z`} fill={win} opacity=".85" />)}
-        <path d={`M702 188v-6a3 3 0 0 1 6 0v6z`} fill={win} opacity=".85" />
-        <path d={`M680 188v-6a3 3 0 0 1 6 0v6z`} fill={win} opacity=".85" />
-      </g>
+      {/* grand entrance with marigold garland */}
+      <path d="M678 270v-30a17 17 0 0 1 34 0v30z" fill="#6e3940" />
+      <path d="M682 270v-28a13 13 0 0 1 26 0v28z" fill={win} opacity=".9" />
+      <path d="M678 270v-30a17 17 0 0 1 34 0v30" fill="none" stroke="#c8a96a" strokeWidth="1.4" />
+      {Array.from({ length: 15 }, (_, k) => {
+        const t = k / 14, ang = Math.PI * (1 - t);
+        return <circle key={k} cx={695 + Math.cos(ang) * 19} cy={241 - Math.sin(ang) * 19} r="2" fill={k % 3 === 1 ? "#c42a43" : "#f0a02c"} />;
+      })}
+      {[656, 724].map((x) => <path key={x} d={`M${x} 256v-18a5.5 5.5 0 0 1 11 0v18z`} fill={win} opacity=".85" stroke={trim} strokeWidth=".8" />)}
 
-      {/* right quarter */}
-      <rect x="742" y="228" width="40" height="42" fill="#c9906f" />
-      <path d="M746 228c0-16 32-16 32 0z" fill="#f5ede2" />
-      <rect x="742" y="228" width="40" height="4" fill="#3f78b0" />
-      {[748, 760, 772].map((x) => <rect key={x} x={x} y="240" width="5" height="8" rx="2.5" fill={win} />)}
+      {/* rooftop chhatris */}
+      <Chhatri x={650} y={162} s={0.9} />
+      <Chhatri x={740} y={162} s={0.9} />
+      <Chhatri x={596} y={204} s={0.7} />
+      <Chhatri x={794} y={204} s={0.7} />
 
-      {/* old city wall with gate */}
-      <g>
-        <rect x="578" y="262" width="222" height="14" fill="#b67c62" />
-        {Array.from({ length: 23 }, (_, i) => <rect key={i} x={578 + i * 10} y="257" width="6" height="5" fill="#b67c62" />)}
-        <path d="M578 268h222" stroke="#9b6450" strokeWidth=".6" />
-      </g>
+      {/* wedding lights all over the haveli */}
+      <LightCurtain x={648} y={198} w={94} h={38} n={18} id={41} />
+      <LightCurtain x={592} y={216} w={54} h={22} n={9} id={47} />
+      <LightCurtain x={744} y={216} w={54} h={22} n={9} id={53} />
+      <Lights x1={596} y1={196} x2={650} y2={150} sag={10} n={14} id={59} />
+      <Lights x1={740} y1={150} x2={794} y2={196} sag={10} n={14} id={63} />
+      <Lights x1={642} y1={164} x2={748} y2={164} sag={6} n={20} id={67} />
+      <Lights x1={590} y1={210} x2={800} y2={210} sag={3} n={34} id={71} />
 
-      {/* festive lights */}
-      <Lights x1={586} y1={180} x2={652} y2={186} sag={10} n={14} id={21} />
-      <Lights x1={736} y1={186} x2={790} y2={180} sag={9} n={12} id={25} />
-      <Lights x1={664} y1={176} x2={724} y2={176} sag={5} n={12} id={29} />
-      <Lights x1={578} y1={258} x2={800} y2={258} sag={4} n={40} id={33} />
+      <Palm x={578} y={274} s={1} />
     </g>
   );
 }
@@ -438,11 +429,11 @@ export default function Journey() {
   return (
     <section className="journey">
       <div className="wrap">
-        <Reveal as="p" className="eyebrow">14 November · 5:00 PM</Reveal>
+        <Reveal as="p" className="eyebrow">13 November · 5:00 PM · Hasilpur</Reveal>
         <Reveal as="h2" className="title" delay={0.1}>The Barat <em className="foil">Journey</em></Reveal>
 
         <div className={`scene${arrived ? " arrived" : ""}`} ref={box}>
-          <svg viewBox="0 0 800 420" role="img" aria-label="On a winter evening the Barat drives from Hasilpur to Multan">
+          <svg viewBox="0 0 800 420" role="img" aria-label="On a winter evening the Barat drives across Hasilpur from the Rasool house to the Malik house">
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stopColor="#2c3157" />
@@ -490,7 +481,7 @@ export default function Journey() {
             <path d="M0 266C120 242 230 254 330 262S520 244 640 254S760 248 800 252V420H0Z" fill="#6f8792" />
             <rect className="fog f1" x="-100" y="236" width="1000" height="34" fill="url(#fogG)" />
 
-            <Multan />
+            <MalikHaveli />
 
             {/* frosty fields */}
             <path d="M0 290C160 274 320 284 480 278S700 266 800 272V420H0Z" fill="url(#field)" />
@@ -538,10 +529,10 @@ export default function Journey() {
             ))}
 
             {/* place markers */}
-            <Pin x={71} y={226} label="Hasilpur" color="#1f7a57" />
-            <Pin x={694} y={108} label="Multan" color="#8e2436" />
+            <Pin x={71} y={226} label="Rasool House" color="#1f3a5f" />
+            <Pin x={695} y={128} label="Malik House" color="#8e2436" />
 
-            {/* fireworks over Multan on arrival */}
+            {/* fireworks over the Malik house on arrival */}
             <g className="fireworks" aria-hidden="true">
               {[
                 { x: 640, y: 90, c: "#e3c27a", d: "0s" },
@@ -565,7 +556,7 @@ export default function Journey() {
           </svg>
         </div>
 
-        <Reveal as="p" className="journey-caption">From Hasilpur to Multan — to bring Iram home</Reveal>
+        <Reveal as="p" className="journey-caption">Across Hasilpur — to bring Zurtashey home</Reveal>
         <Reveal delay={0.15}>
           <a className="btn solid" style={{ marginTop: 22 }} href={barat.map} target="_blank" rel="noopener noreferrer">View Barat Location</a>
         </Reveal>

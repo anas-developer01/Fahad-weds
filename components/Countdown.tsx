@@ -68,7 +68,7 @@ export default function Countdown() {
         <div className="cd" role="timer" aria-live="off">
           {units.map(([v, l], i) => <Unit key={l} value={v} label={l} i={i} />)}
         </div>
-        <Reveal as="p" className="cd-note" delay={0.3}>Saturday, 14 November 2026 · 5:00 PM</Reveal>
+        <Reveal as="p" className="cd-note" delay={0.3}>Friday, 13 November 2026 · 5:00 PM</Reveal>
       </div>
     </section>
   );

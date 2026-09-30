@@ -6,7 +6,7 @@ import Events from "@/components/Events";
 import Hero from "@/components/Hero";
 import Invite from "@/components/Invite";
 import Journey from "@/components/Journey";
-import Merge from "@/components/Merge";
+import Blueprint from "@/components/Blueprint";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -24,7 +24,7 @@ export default function Home() {
         <Countdown />
         <Events />
         <Journey />
-        <Merge />
+        <Blueprint />
         <Dua />
       </main>
       <Footer />
