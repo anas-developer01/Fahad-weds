@@ -61,7 +61,7 @@ export default function Blueprint() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           style={{ transformPerspective: 1200 }}
         >
-          <svg viewBox="0 0 600 400" role="img" aria-label={`Blueprint of an arch bridge joining ${couple.groomFirst} and ${couple.brideFirst}`}>
+          <svg viewBox="0 20 600 350" role="img" aria-label={`Blueprint of an arch bridge joining ${couple.groomFirst} and ${couple.brideFirst}`}>
             <defs>
               <pattern id="bpGrid" width="20" height="20" patternUnits="userSpaceOnUse">
                 <path d="M20 0H0V20" fill="none" stroke="rgba(219,232,247,.12)" strokeWidth=".6" />
@@ -75,7 +75,7 @@ export default function Blueprint() {
             </defs>
             <rect width="600" height="400" fill="url(#bpGrid)" />
             <rect width="600" height="400" fill="url(#bpGridBig)" />
-            <rect x="10" y="10" width="580" height="380" fill="none" stroke={faint} strokeWidth="1" />
+            <rect x="10" y="30" width="580" height="330" fill="none" stroke={faint} strokeWidth="1" />
 
             {/* ground & river */}
             <Draw d="M20 300H130M470 300H580" w={1.2} delay={0.2} />
@@ -116,31 +116,11 @@ export default function Blueprint() {
               <line x1="130" y1="340" x2="130" y2="360" stroke={faint} strokeWidth=".8" />
               <line x1="470" y1="340" x2="470" y2="360" stroke={faint} strokeWidth="1" />
               <rect x="248" y="344" width="104" height="16" fill="#1a4b86" />
-              <text x="300" y="356" textAnchor="middle" fontSize="10" fill={ink} fontFamily="ui-monospace, Menlo, monospace">SPAN = ∞ LOVE</text>
+              <text x="300" y="356" textAnchor="middle" fontSize="11" fill={ink} fontFamily="ui-monospace, Menlo, monospace">SPAN = ∞ LOVE</text>
 
               <line x1="530" y1="130" x2="530" y2="240" stroke={ink} strokeWidth=".8" markerStart="url(#arrow)" markerEnd="url(#arrow)" />
-              <text x="540" y="190" fontSize="9" fill={ink} fontFamily="ui-monospace, Menlo, monospace" transform="rotate(90 540 190)" textAnchor="middle">RISE = HAPPINESS</text>
+              <text x="542" y="190" fontSize="10" fill={ink} fontFamily="ui-monospace, Menlo, monospace" transform="rotate(90 540 190)" textAnchor="middle">RISE = HAPPINESS</text>
 
-              <text x="40" y="60" fontSize="9.5" fill={ink} fontFamily="ui-monospace, Menlo, monospace">NOTE 1: FOUNDATIONS CAST IN FAITH</text>
-              <text x="40" y="76" fontSize="9.5" fill={ink} fontFamily="ui-monospace, Menlo, monospace">NOTE 2: REINFORCED WITH DUAS</text>
-              <text x="40" y="92" fontSize="9.5" fill={ink} fontFamily="ui-monospace, Menlo, monospace">NOTE 3: NO EXPANSION JOINTS REQUIRED</text>
-              <path d="M205 88L292 124" stroke={faint} strokeWidth=".6" markerEnd="url(#arrow)" />
-            </Fade>
-
-            {/* title block */}
-            <Fade delay={2.3}>
-              <g transform="translate(372 18)">
-                <rect width="210" height="96" fill="#173f72" stroke={ink} strokeWidth=".9" />
-                {spec.map(([k, v], i) => (
-                  <g key={k} transform={`translate(0 ${i * 16})`}>
-                    {i > 0 && <line x1="0" y1="0" x2="210" y2="0" stroke={faint} strokeWidth=".5" />}
-                    <text x="6" y="11.5" fontSize="7.5" fill={faint} fontFamily="ui-monospace, Menlo, monospace">{k.toUpperCase()}</text>
-                    <text x="72" y="11.5" fontSize="8.5" fill={ink} fontFamily="ui-monospace, Menlo, monospace">{v}</text>
-                  </g>
-                ))}
-                <line x1="66" y1="0" x2="66" y2="96" stroke={faint} strokeWidth=".5" />
-              </g>
-              <text x="582" y="128" textAnchor="end" fontSize="8" fill={faint} fontFamily="ui-monospace, Menlo, monospace">DWG No. FZ-1311 · SCALE 1:∞</text>
             </Fade>
 
             {/* approval stamp */}
@@ -149,9 +129,9 @@ export default function Blueprint() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-10% 0px" }}
               transition={{ duration: 0.45, delay: 3, ease: [0.34, 1.56, 0.64, 1] }}
-              style={{ transformOrigin: "100px 360px" }}
+              style={{ transformOrigin: "100px 62px" }}
             >
-              <g transform="rotate(-12 100 362)">
+              <g transform="translate(0 -300) rotate(-8 100 362)">
                 <rect x="30" y="344" width="140" height="36" rx="4" fill="none" stroke="#e3c27a" strokeWidth="2.4" />
                 <rect x="35" y="349" width="130" height="26" rx="2" fill="none" stroke="#e3c27a" strokeWidth=".8" />
                 <text x="100" y="362" textAnchor="middle" fontSize="13" fontWeight="700" letterSpacing="2" fill="#e3c27a" fontFamily="ui-monospace, Menlo, monospace">APPROVED</text>
@@ -159,6 +139,20 @@ export default function Blueprint() {
               </g>
             </motion.g>
           </svg>
+
+          <div className="bp-info">
+            <ul className="bp-notes">
+              <li><b>Note 1</b> Foundations cast in faith</li>
+              <li><b>Note 2</b> Reinforced with duas</li>
+              <li><b>Note 3</b> No expansion joints required</li>
+            </ul>
+            <dl className="bp-block">
+              {spec.map(([k, v]) => (
+                <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+              ))}
+              <div className="bp-dwg"><dt>Drawing</dt><dd>FZ-1311 · Scale 1:∞</dd></div>
+            </dl>
+          </div>
         </motion.div>
       </div>
     </section>

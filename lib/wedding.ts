@@ -37,6 +37,7 @@ export const families = {
 /** Contacts for guest queries — numbers in local Pakistani format */
 export const contacts = [
   { name: "Mr. Ghulam Rasool", role: "Father of the Groom", phone: "03059654192" },
+  { name: "Anas Rasool", role: "Brother of the Groom", phone: "03080933788" },
 ];
 
 /** 03059654192 -> 923059654192 (for tel: and WhatsApp links) */
