@@ -63,7 +63,7 @@ function Seal() {
         <circle r="82" fill="none" stroke="#e6d3a3" strokeWidth=".8" strokeDasharray="1.5 4" />
         <circle r="74" fill="none" stroke="#c8a96a" strokeWidth="1.2" />
         <text y="16" textAnchor="middle" fontSize="48" fontWeight="500" fill="#ecdcae" style={{ fontFamily: "var(--serif)", letterSpacing: 2 }}>
-          A<tspan fontStyle="italic" fill="#c8a96a">&amp;</tspan>I
+          F<tspan fontStyle="italic" fill="#c8a96a">&amp;</tspan>Z
         </text>
         <path d="M-22 34h44" stroke="#c8a96a" strokeWidth=".8" />
         <circle cy="34" r="2" fill="#ecdcae" />
@@ -185,7 +185,7 @@ export default function Gate({ p, onOpen }: { p: MotionValue<number>; onOpen: ()
         </motion.button>
 
         <motion.div className="gate-hint" style={{ opacity: textOpacity, y: hintY, x: "-50%" }}>
-          <span className="names-top">Anas <em>&amp;</em> Iram</span>
+          <span className="names-top">Fahad <em>&amp;</em> Zurtashey</span>
           {count !== null && (
             <>
               <span className="auto-bar" aria-hidden="true"><i style={{ animationDuration: `${AUTO_OPEN_SECONDS}s` }} /></span>

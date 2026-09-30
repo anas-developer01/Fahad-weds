@@ -11,33 +11,33 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
 
-const title = "Anas & Iram — Wedding Invitation";
+const title = "Fahad & Zurtashey — Wedding Invitation";
 const description =
-  "You are cordially invited to the wedding of Anas Rasool & Iram Nasir. Mehndi 12 Nov · Barat 14 Nov · Walima 15 Nov 2026 · Hasilpur.";
+  "You are cordially invited to the wedding of Fahad Rasool & Zurtashey Malik. Mehndi 12 Nov · Barat 13 Nov · Walima 15 Nov 2026 · Hasilpur.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  applicationName: "Anas & Iram Wedding",
-  keywords: ["Anas Rasool", "Iram Nasir", "Anas weds Iram", "wedding invitation", "Mehndi", "Barat", "Walima", "Hasilpur", "Multan"],
-  authors: [{ name: "Anas Rasool" }],
+  applicationName: "Fahad & Zurtashey Wedding",
+  keywords: ["Fahad Rasool", "Zurtashey Malik", "Fahad weds Zurtashey", "wedding invitation", "Mehndi", "Barat", "Walima", "Hasilpur"],
+  authors: [{ name: "Fahad Rasool" }],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "Anas & Iram — Wedding",
-    title: "You're invited — Anas & Iram 💍",
+    siteName: "Fahad & Zurtashey — Wedding",
+    title: "You're invited — Fahad & Zurtashey 💍",
     description,
     locale: "en_PK",
   },
   twitter: {
     card: "summary_large_image",
-    title: "You're invited — Anas & Iram 💍",
+    title: "You're invited — Fahad & Zurtashey 💍",
     description,
   },
   robots: { index: true, follow: true },
-  appleWebApp: { title: "Anas & Iram", statusBarStyle: "default" },
+  appleWebApp: { title: "Fahad & Zurtashey", statusBarStyle: "default" },
   formatDetection: { telephone: false },
 };
 

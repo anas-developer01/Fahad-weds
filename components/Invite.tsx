@@ -8,7 +8,7 @@ import { couple, families } from "@/lib/wedding";
 
 const text: [string, boolean?][] = [
   ["Together"], ["with"], ["our"], ["families,"], ["we"], ["joyfully"], ["invite"], ["you"], ["to"], ["celebrate"], ["the"], ["union"], ["of"],
-  ["Anas Rasool", true], ["and"], ["Iram Nasir.", true],
+  ["Fahad Rasool", true], ["and"], ["Zurtashey Malik.", true],
   ["Your"], ["presence,"], ["love"], ["and"], ["prayers"], ["would"], ["make"], ["our"], ["happiness"], ["complete."],
 ];
 

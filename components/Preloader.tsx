@@ -47,7 +47,7 @@ export default function Preloader() {
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: .7 }}
             >
-              A<tspan fill="#e3c27a" fontStyle="italic">&amp;</tspan>I
+              F<tspan fill="#e3c27a" fontStyle="italic">&amp;</tspan>Z
             </motion.text>
           </svg>
           <motion.p className="bism" lang="ar" dir="rtl" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: .9 }}>
