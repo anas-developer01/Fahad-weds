@@ -9,8 +9,8 @@ export const couple = {
 };
 
 export const families = {
-  groom: { father: "Mr. Ghulam Rasool", mother: "Mrs. Shazia Erum", relation: "Son of" },
-  bride: { father: "Mr. Ghulam Nabi", mother: "Mrs. Sumaira Rasheed", relation: "Daughter of" },
+  groom: { parents: "Mr. & Mrs. Ghulam Rasool", relation: "Son of" },
+  bride: { parents: "Mr. & Mrs. Ghulam Nabi", relation: "Daughter of" },
   lookingForward: [
     "Malik Aslam",
     "Malik Shahid Iqbal",

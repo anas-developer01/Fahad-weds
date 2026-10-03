@@ -49,14 +49,14 @@ export default function Invite() {
             <p className="role">The Groom</p>
             <h3>{couple.groom}</h3>
             <p className="rel">{families.groom.relation}</p>
-            <p className="parents">{families.groom.father}<br />&amp; {families.groom.mother}</p>
+            <p className="parents">{families.groom.parents}</p>
           </Reveal>
           <Reveal className="family-amp" delay={0.15}>&amp;</Reveal>
           <Reveal className="family" delay={0.25}>
             <p className="role">The Bride</p>
             <h3>{couple.bride}</h3>
             <p className="rel">{families.bride.relation}</p>
-            <p className="parents">{families.bride.father}<br />&amp; {families.bride.mother}</p>
+            <p className="parents">{families.bride.parents}</p>
           </Reveal>
         </div>
       </div>

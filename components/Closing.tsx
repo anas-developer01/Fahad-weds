@@ -21,7 +21,7 @@ export function Dua() {
         <Reveal as="p" className="en" delay={0.2}>“May Allah bless you both, shower His blessings upon you, and unite you in goodness.”</Reveal>
         <Reveal className="host" delay={0.3}>
           <p>With best compliments from</p>
-          <h4>{families.groom.father} &amp; {families.groom.mother}</h4>
+          <h4>{families.groom.parents}</h4>
         </Reveal>
         <Reveal className="host forward" delay={0.4}>
           <p>Looking forward</p>
